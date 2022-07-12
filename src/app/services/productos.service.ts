@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-
+import { Producto } from '../models/producto.model';
 @Injectable({
   providedIn: 'root'
 })
@@ -7,27 +7,42 @@ export class ProductosService {
 
   constructor() { }
 
-  productos = [
+  productos: Producto[] = [
     {
-      nombre: 'Producto 1',
-      descripcion: 'Descripción del producto 1',
-      precio: '$100',
-      imagen: 'assets/img/producto1.jpg',
-      cantidad: 20
+      nombre: 'Pizza',
+      img: 'assets/img/productos/pizza.jpg',
+      descripcion: 'Pizza es una comida típica de la cocina española, que se sirve en una masa de	pan de una masa diferente, que se rellena con una variedad de ingredientes, que se acompaña con una salsa o una aderezada.',
+      precio: 10,
+      id: '1',
+      categoria: 'Pizzas',
+      stock: 10
     },
     {
-      nombre: 'Producto 2',
-      descripcion: 'Descripción del producto 2',
-      precio: '$200',
-      imagen: 'assets/img/producto2.jpg',
-      cantidad: 10
+      nombre: 'Hamburguesa',
+      img: 'assets/img/productos/hamburguesa.jpg',
+      descripcion: 'Hamburguesa es una comida típica de la cocina española, que se sirve en una masa de	pan de una masa diferente, que se rellena con una variedad de ingredientes, que se acompaña con una salsa o una aderezada.',
+      precio: 10,
+      id: '2',
+      categoria: 'Hamburguesas',
+      stock: 10
     },
     {
-      nombre: 'Producto 3',
-      descripcion: 'Descripción del producto 3',
-      precio: '$300',
-      imagen: 'assets/img/producto3.jpg',
-      cantidad: 5
-    }
-  ];
+      nombre: 'Pollo',
+      img: 'assets/img/productos/pollo.jpg',
+      descripcion: 'Pollo es una comida típica de la cocina española, que se sirve en una masa de	pan de una masa diferente, que se rellena con una variedad de ingredientes, que se acompaña con una salsa o una aderezada.',
+      precio: 10,
+      id: '3',
+      categoria: 'Pollo',
+      stock: 10
+    },
+    {
+      nombre: 'Pescado',
+      img: 'assets/img/productos/pescado.jpg',
+      descripcion: 'Pescado es una comida típica de la cocina española, que se sirve en una masa de	pan de una masa diferente, que se rellena con una variedad de ingredientes, que se acompaña con una salsa o una aderezada.',
+      precio: 10,
+      id: '4',
+      categoria: 'Pescado',
+      stock: 10
+    },
+  ]
 }
