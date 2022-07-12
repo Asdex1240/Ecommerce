@@ -1,5 +1,5 @@
 <ion-content>
-<ion-card class="box-center">
+<ion-card class="box-center" *ngIf="activador==false">
   <ion-card-content>
     <h1 class="ion-text-center">Inicia Sesion</h1>
     <ion-item>
@@ -13,10 +13,10 @@
     <ion-button expand="block" color="primary">Iniciar Sesion</ion-button>
     <br>
     <p class="ion-text-center">ó</p><br>
-    <ion-button expand="block" color="secondary" [routerLink]="'/register'">Registrarse</ion-button>
+    <ion-button expand="block" color="secondary" (click)="activar()">Registrarse</ion-button>
   </ion-card-content>
 </ion-card>
-<ion-card class="box-center">
+<ion-card class="box-center" *ngIf="activador==true">
   <ion-card-content>
     <h1 class="ion-text-center">Registro</h1>
     <ion-item>
@@ -35,10 +35,11 @@
       <ion-label position="floating">Repite contraseña</ion-label>
       <ion-input type="password" placeholder="Escribe tu contraseña"></ion-input>
     </ion-item>
+    <br>
     <ion-button expand="block" color="primary">Registro</ion-button>
     <br>
     <p class="ion-text-center">ó</p><br>
-    <ion-button expand="block" color="secondary" [routerLink]="'/login'">Inicia sesión</ion-button>
+    <ion-button expand="block" color="secondary" (click)="activar()">Inicia sesión</ion-button>
   </ion-card-content>
 </ion-card>
 </ion-content>

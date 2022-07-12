@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-
+  activador: boolean = false;
   constructor() { }
 
   ngOnInit() {
   }
-
+  activar(){
+    this.activador = !this.activador;
+  }
 }
