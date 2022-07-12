@@ -1,5 +1,6 @@
 <ion-content>
-<ion-card class="box-center" *ngIf="activador==false">
+<!--Card del login-->
+  <ion-card class="box-center" *ngIf="activador==false">
   <ion-card-content>
     <h1 class="ion-text-center">Inicia Sesion</h1>
     <ion-item>
@@ -16,6 +17,7 @@
     <ion-button expand="block" color="secondary" (click)="activar()">Registrarse</ion-button>
   </ion-card-content>
 </ion-card>
+<!--Card del registro-->
 <ion-card class="box-center" *ngIf="activador==true">
   <ion-card-content>
     <h1 class="ion-text-center">Registro</h1>
