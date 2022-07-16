@@ -31,8 +31,10 @@ const routes: Routes = [
   },
   {
     path: 'carrito',
-    loadChildren: () => import('./carrito/carrito.module').then( m => m.CarritoPageModule)
+    loadChildren: () => import('./carrito/carrito.module').then( m => m.CarritoPageModule),
+    ...canActivate(redirectUnauthorizedToLogin)
   },
+
 ];
 
 @NgModule({

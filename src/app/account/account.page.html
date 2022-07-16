@@ -1,3 +1,10 @@
+<ion-item>
+  <ion-buttons slot="start">
+    <ion-button (click)="menu()">
+      <ion-icon slot="icon-only" name="menu"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+</ion-item>
 
 <ion-content>
   <div class="preview">
@@ -9,10 +16,10 @@
 
   <ion-list>
     <ion-item>
-      <ion-label class="ion-text-center">Pedidos</ion-label>
+      <ion-label class="ion-text-center" [routerLink]="'/account/pedidos'">Pedidos</ion-label>
     </ion-item>
     <ion-item>
-      <ion-label class="ion-text-center">Configuraciones</ion-label>
+      <ion-label class="ion-text-center" [routerLink]="'/account/configuraciones'">Configuraciones</ion-label>
     </ion-item>
     <ion-item>
       <ion-label class="ion-text-center" (click)="logout()">Cerrar Sesión</ion-label>

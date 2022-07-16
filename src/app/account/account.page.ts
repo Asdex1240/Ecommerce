@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MenuController } from '@ionic/angular';
 import { AuthService } from '../services/auth.service';
 @Component({
   selector: 'app-account',
@@ -12,6 +13,7 @@ export class AccountPage implements OnInit {
   (
     private authService: AuthService,
     private router: Router,
+    private menuCtrl: MenuController
   ) { }
 
   ngOnInit() {
@@ -23,4 +25,7 @@ export class AccountPage implements OnInit {
     console.log('Listo');
   }
 
+  menu(){
+    this.menuCtrl.toggle();
+  }
 }

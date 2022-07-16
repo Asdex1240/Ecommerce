@@ -12,16 +12,21 @@
     </ion-buttons>
     <ion-input type="text" placeholder="¿Qué necesitas?"></ion-input>
   </ion-item>
-  <ion-card *ngFor="let producto of productos">
-    <ion-card-content>
-      <ion-img src="{{producto.img}}"></ion-img>
-      <ion-card-title>
-        {{producto.nombre}}
-      </ion-card-title>
-      <p>
-        {{producto.descripcion}}
-      </p>
-      <p>{{producto.precio}}</p>
-    </ion-card-content>
-  </ion-card>
+
+  <h2 style="position: relative; left:5%" *ngIf="profile">Hola {{dataProfile.nombre}} ¿Necesitas algo?</h2>
+  <ion-grid>
+    <ion-row>
+      <ion-col *ngFor="let producto of productos">
+          <ion-card style="position: relative;">
+            <ion-card-content>
+              <ion-img src="{{producto.img}}"></ion-img>
+              <h1>
+                {{producto.nombre}}
+              </h1>
+              <h2> $ {{producto.precio}}</h2>
+            </ion-card-content>
+          </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
