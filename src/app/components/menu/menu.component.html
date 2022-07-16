@@ -6,7 +6,7 @@
   </ion-header>
   <ion-content>
     <ion-list>
-      <ion-item *ngFor="let opcion of opciones" (click)="goTo(opcion)">{{opcion}}</ion-item>
+      <ion-item *ngFor="let opcion of menuFiltrado" (click)="goTo(opcion.url)">{{opcion.nombre}}</ion-item>
     </ion-list>
   </ion-content>
 </ion-menu>

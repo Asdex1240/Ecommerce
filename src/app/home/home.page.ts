@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { ProductosService } from '../services/productos.service';
-import { FirebaseService } from '../services/firebase.service';
 import { Auth } from '@angular/fire/auth';
 import { MenuController } from '@ionic/angular';
 @Component({
@@ -14,7 +13,6 @@ export class HomePage {
 
   constructor(
     private productosSvc: ProductosService,
-    private firebaseSvc: FirebaseService,
     private auth: Auth,
     private menuCtrl: MenuController
     ) 
@@ -25,7 +23,6 @@ export class HomePage {
         }else{
           this.profile = false;
         }
-        console.log(this.profile);
       });    
     }
     menu(){
