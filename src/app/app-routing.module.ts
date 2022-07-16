@@ -26,15 +26,10 @@ const routes: Routes = [
     ...canActivate(redirectUnauthorizedToLogin)
   },
   {
-    path: 'admin',
-    loadChildren: () => import('./admin/admin.module').then( m => m.AdminPageModule),
-  },
-  {
     path: 'carrito',
     loadChildren: () => import('./carrito/carrito.module').then( m => m.CarritoPageModule),
     ...canActivate(redirectUnauthorizedToLogin)
   },
-
 ];
 
 @NgModule({

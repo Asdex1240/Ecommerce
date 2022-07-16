@@ -25,26 +25,31 @@ export class MenuComponent implements OnInit {
     {
       nombre: 'Inicio',
       url: 'home',
+      icon: 'home-outline',
     },
     {
       nombre: 'Cuenta',
       url: 'account',
-      require: true
+      require: true,
+      icon: 'person-outline',
     },
     {
       nombre: 'Carrito',
       url: 'carrito',
-      require: true
+      require: true,
+      icon: 'cart-outline',
     },
     {
       nombre: 'Iniciar Sesión',
       url: 'login',
-      require: false
+      require: false,
+      icon: 'log-in-outline',
     },
     {
       nombre: 'Salir',
       url: 'logout',
-      require: true
+      require: true,
+      icon: 'log-out-outline',
     }
   ];
   ngOnInit() {

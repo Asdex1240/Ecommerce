@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { MenuController } from '@ionic/angular';
 @Component({
   selector: 'app-configuraciones',
   templateUrl: './configuraciones.page.html',
@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConfiguracionesPage implements OnInit {
 
-  constructor() { }
+  constructor
+  (
+    private menuCtrl: MenuController
+  ) { }
 
   ngOnInit() {
   }
-
+  
+  menu(){
+    this.menuCtrl.toggle();
+  }
 }
