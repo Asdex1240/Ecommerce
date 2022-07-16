@@ -20,10 +20,20 @@
           <ion-card style="position: relative;">
             <ion-card-content>
               <ion-img src="{{producto.img}}"></ion-img>
-              <h1>
-                {{producto.nombre}}
-              </h1>
-              <h2> $ {{producto.precio}}</h2>
+              <ion-item>
+                <h1>
+                  {{producto.nombre}}
+                </h1>
+                <ion-buttons slot="end">
+                  <ion-button>
+                    <ion-icon slot="icon-only" name="cart-outline"></ion-icon>
+                  </ion-button>
+                </ion-buttons>
+              </ion-item>
+              <ion-item>
+                
+                <h2> $ {{producto.precio}}</h2>
+              </ion-item>
             </ion-card-content>
           </ion-card>
       </ion-col>
