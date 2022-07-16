@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Auth } from '@angular/fire/auth';
-import { Firestore, doc, docData, collectionData } from '@angular/fire/firestore';
-import { setDoc, collection, deleteDoc} from 'firebase/firestore';
+import { Firestore, doc, docData, collection, deleteDoc, collectionData } from '@angular/fire/firestore';
+import { setDoc } from 'firebase/firestore';
 import { User } from '../models/user.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FirebaseService {
-
+  x;
   constructor
   (
     private auth: Auth,
@@ -17,6 +17,7 @@ export class FirebaseService {
 
   getInfoUser(){
     const user = this.auth.currentUser;
+    //console.log(user);
     const userDocRef = doc(this.firestore, `users/${user.uid}`);
     return docData(userDocRef);
   }
@@ -35,5 +36,15 @@ export class FirebaseService {
   deleteDocument(id: string) {
     const userDocRef = doc(this.firestore, `users/${id}`);
     return deleteDoc(userDocRef);
+  }
+
+  statusUser(){
+    this.auth.onAuthStateChanged(async user => {
+      if (user) {
+        console.log(user.displayName);
+      }else{
+        console.log('No user logged');
+      }
+    });
   }
 }

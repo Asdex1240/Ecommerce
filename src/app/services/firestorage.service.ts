@@ -23,14 +23,14 @@ export class FirestorageService {
     return docData(userDocRef);
   }
 
-  async uploadImage(cameraFile: Photo){
-    const user = this.auth.currentUser;
-    const path = `uploads/${user.uid}/profile.png`;
+  async uploadImage(cameraFile: Photo, folder: string, id: string) {
+
+    const path = `uploads/${folder}/${id}`;
     const storageRef = ref(this.storage, path);
     try{
       await uploadString(storageRef, cameraFile.base64String, 'base64');
       const imageUrl = await getDownloadURL(storageRef);
-      const userDocRef = doc(this.firestore, `users/${user.uid}`);
+      const userDocRef = doc(this.firestore, `${folder}/${id}`);
       await setDoc(userDocRef, {
         imageUrl,
       })
