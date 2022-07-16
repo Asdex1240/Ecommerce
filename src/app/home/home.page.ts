@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ProductosService } from '../services/productos.service';
 import { FirebaseService } from '../services/firebase.service';
 import { Auth } from '@angular/fire/auth';
+import { MenuController } from '@ionic/angular';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -9,11 +10,13 @@ import { Auth } from '@angular/fire/auth';
 })
 export class HomePage {
   profile: any;
+  productos = this.productosSvc.productos;
 
   constructor(
     private productosSvc: ProductosService,
     private firebaseSvc: FirebaseService,
-    private auth: Auth
+    private auth: Auth,
+    private menuCtrl: MenuController
     ) 
     {
       this.auth.onAuthStateChanged(user => {
@@ -23,8 +26,9 @@ export class HomePage {
           this.profile = false;
         }
         console.log(this.profile);
-      });
-      
+      });    
     }
-  productos = this.productosSvc.productos;
+    menu(){
+      this.menuCtrl.toggle();
+    }
 }

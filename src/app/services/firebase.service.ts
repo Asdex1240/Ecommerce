@@ -8,7 +8,7 @@ import { User } from '../models/user.model';
   providedIn: 'root'
 })
 export class FirebaseService {
-  x;
+
   constructor
   (
     private auth: Auth,
@@ -17,7 +17,6 @@ export class FirebaseService {
 
   getInfoUser(){
     const user = this.auth.currentUser;
-    //console.log(user);
     const userDocRef = doc(this.firestore, `users/${user.uid}`);
     return docData(userDocRef);
   }
@@ -38,13 +37,4 @@ export class FirebaseService {
     return deleteDoc(userDocRef);
   }
 
-  statusUser(){
-    this.auth.onAuthStateChanged(async user => {
-      if (user) {
-        console.log(user.displayName);
-      }else{
-        console.log('No user logged');
-      }
-    });
-  }
 }

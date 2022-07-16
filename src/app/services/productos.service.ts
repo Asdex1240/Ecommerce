@@ -10,7 +10,7 @@ export class ProductosService {
   productos: Producto[] = [
     {
       nombre: 'Pizza',
-      img: 'assets/img/productos/pizza.jpg',
+      img: 'https://static.docsity.com/documents_first_pages/2018/11/16/b99921254f00a207bdcab233f774bafc.png',
       descripcion: 'Pizza es una comida típica de la cocina española, que se sirve en una masa de	pan de una masa diferente, que se rellena con una variedad de ingredientes, que se acompaña con una salsa o una aderezada.',
       precio: 10,
       id: '1',
@@ -19,7 +19,7 @@ export class ProductosService {
     },
     {
       nombre: 'Hamburguesa',
-      img: 'assets/img/productos/hamburguesa.jpg',
+      img: 'https://static.docsity.com/documents_first_pages/2018/11/16/b99921254f00a207bdcab233f774bafc.png',
       descripcion: 'Hamburguesa es una comida típica de la cocina española, que se sirve en una masa de	pan de una masa diferente, que se rellena con una variedad de ingredientes, que se acompaña con una salsa o una aderezada.',
       precio: 10,
       id: '2',
@@ -28,7 +28,7 @@ export class ProductosService {
     },
     {
       nombre: 'Pollo',
-      img: 'assets/img/productos/pollo.jpg',
+      img: 'https://static.docsity.com/documents_first_pages/2018/11/16/b99921254f00a207bdcab233f774bafc.png',
       descripcion: 'Pollo es una comida típica de la cocina española, que se sirve en una masa de	pan de una masa diferente, que se rellena con una variedad de ingredientes, que se acompaña con una salsa o una aderezada.',
       precio: 10,
       id: '3',
@@ -37,7 +37,7 @@ export class ProductosService {
     },
     {
       nombre: 'Pescado',
-      img: 'assets/img/productos/pescado.jpg',
+      img: 'https://static.docsity.com/documents_first_pages/2018/11/16/b99921254f00a207bdcab233f774bafc.png',
       descripcion: 'Pescado es una comida típica de la cocina española, que se sirve en una masa de	pan de una masa diferente, que se rellena con una variedad de ingredientes, que se acompaña con una salsa o una aderezada.',
       precio: 10,
       id: '4',

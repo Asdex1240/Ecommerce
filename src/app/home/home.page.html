@@ -1,5 +1,10 @@
 <ion-content [fullscreen]="true">
   <ion-item>
+    <ion-buttons slot="start">
+      <ion-button (click)="menu()">
+        <ion-icon slot="icon-only" name="menu"></ion-icon>
+      </ion-button>
+    </ion-buttons>
     <ion-buttons slot="end">
       <ion-button>
         <ion-icon name="search-outline" slot="icon-only"></ion-icon>
@@ -9,6 +14,7 @@
   </ion-item>
   <ion-card *ngFor="let producto of productos">
     <ion-card-content>
+      <ion-img src="{{producto.img}}"></ion-img>
       <ion-card-title>
         {{producto.nombre}}
       </ion-card-title>
