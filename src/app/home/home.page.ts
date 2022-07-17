@@ -3,6 +3,7 @@ import { ProductosService } from '../services/productos.service';
 import { Auth } from '@angular/fire/auth';
 import { MenuController } from '@ionic/angular';
 import { FirebaseService } from '../services/firebase.service';
+import { Categoria } from '../models/producto.model';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -14,6 +15,8 @@ export class HomePage {
   dataProfile = {
     nombre: '',
   }
+
+  categories= ['Todos', 'Hombre', 'Mujer', 'Niños', 'Accesorios', 'Otros'];
   constructor(
     private productosSvc: ProductosService,
     private auth: Auth,
@@ -35,5 +38,9 @@ export class HomePage {
 
     menu(){
       this.menuCtrl.toggle();
+    }
+    onCategoryChange(event){
+      console.clear();
+      console.log(event.detail.value);
     }
 }
