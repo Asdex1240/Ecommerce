@@ -45,4 +45,6 @@ export class ProductosService {
       stock: 10
     },
   ]
+  
+  categories= ['Pizzas', 'Hamburguesas', 'Pollo', 'Pescado'];
 }

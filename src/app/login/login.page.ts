@@ -26,7 +26,8 @@ export class LoginPage implements OnInit {
     codigoPostal: null,
     correo: '',
     password: '',
-    id: ''
+    id: '',
+    card: ''
 
   };
 

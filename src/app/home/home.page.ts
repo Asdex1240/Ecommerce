@@ -16,7 +16,8 @@ export class HomePage {
     nombre: '',
   }
 
-  categories= ['Todos', 'Hombre', 'Mujer', 'Niños', 'Accesorios', 'Otros'];
+  categories= this.productosSvc.categories;
+  
   constructor(
     private productosSvc: ProductosService,
     private auth: Auth,
