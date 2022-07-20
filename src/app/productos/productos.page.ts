@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductosService } from '../services/productos.service';
 import { ActivatedRoute } from '@angular/router';
-import { Producto } from '../models/producto.model';
+import { Producto, Pedido } from '../models/producto.model';
+import { MenuController } from '@ionic/angular';
+import { Auth } from '@angular/fire/auth';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-productos',
   templateUrl: './productos.page.html',
@@ -10,16 +14,58 @@ import { Producto } from '../models/producto.model';
 export class ProductosPage implements OnInit {
 
   producto: Producto;
+  statusProfile;
+  carrito = {
+    productos: '',
+    idProductos: '',
+    idComprador: '',
+    monto: null,
+    status: false,
+    cantidad: null,
+    fecha: '',
+  }
+
   constructor
   (
-    private productosService: ProductosService,
-    private route: ActivatedRoute
+    public productosService: ProductosService,
+    private route: ActivatedRoute,
+    private auth: Auth,
+    private router: Router,
+    private menuCtrl: MenuController
   ) {
     this.route.params.subscribe(params => {
       this.producto = this.productosService.productos.find(producto => producto.id == params.id);
     });
+    this.auth.onAuthStateChanged(user => {
+      if (user) {
+        this.statusProfile = true
+      }else{
+        this.statusProfile = false;
+      }
+    });
+
   }
   ngOnInit() {
   }
 
+  menu(){
+    this.menuCtrl.toggle();
+  }
+
+  openCart(){
+    if(this.statusProfile){
+      
+      this.carrito.productos = this.producto.nombre;
+      this.carrito.idProductos = this.producto.id;
+      this.carrito.idComprador = this.auth.currentUser.uid;
+      this.carrito.monto = this.producto.precio;
+      this.carrito.status = false;
+      this.carrito.cantidad = 1;
+      this.carrito.fecha = new Date().toISOString();
+      this.productosService.carrito.push(this.carrito);
+      console.log(this.productosService.carrito);
+    }else{
+      this.router.navigateByUrl('/login');
+    }
+  }
 }

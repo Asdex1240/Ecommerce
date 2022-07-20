@@ -1,3 +1,11 @@
+<ion-item color="primary">
+  <ion-buttons slot="start">
+    <ion-button (click)="menu()">
+      <ion-icon slot="icon-only" name="menu"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+  <ion-title class="ion-text-center">Producto</ion-title>
+</ion-item>
 <ion-content>
   <ion-card>
     <ion-card-content>
@@ -10,7 +18,7 @@
 
       <ion-item>
         <ion-buttons  slot="end">
-          <ion-button>
+          <ion-button (click)="openCart()">
             <ion-icon slot="icon-only" name="cart-outline"></ion-icon>
           </ion-button>
         </ion-buttons>
@@ -18,4 +26,7 @@
       </ion-item>
     </ion-card-content>
   </ion-card>
+  <ion-button expand="block" *ngIf="this.productosService.carrito.length > 0" [routerLink]="'/carrito'">
+    Ver carrito
+  </ion-button>
 </ion-content>

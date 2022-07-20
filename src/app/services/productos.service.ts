@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Producto } from '../models/producto.model';
+import { Producto, Pedido } from '../models/producto.model';
 @Injectable({
   providedIn: 'root'
 })
@@ -47,4 +47,17 @@ export class ProductosService {
   ]
   
   categories= ['Pizzas', 'Hamburguesas', 'Pollo', 'Pescado'];
+
+  carrito: Pedido[] = [
+    {
+      productos: 'Pizza',
+      idProductos: '1',
+      idComprador: '1',
+      monto: 10,
+      status: false,
+      cantidad: 1,
+      fecha: '',
+    },
+  ];
+
 }

@@ -17,12 +17,12 @@ export class Categoria {
 
 }
 
-export class Pedido {
-	
-	productos: any;
+export class Pedido {	
+	productos: string;
 	idProductos: any;
 	idComprador: string;
 	monto: number;
 	status: boolean;
-
+	cantidad: number;
+	fecha: string;
 }
