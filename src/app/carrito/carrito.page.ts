@@ -33,7 +33,7 @@ export class CarritoPage implements OnInit {
       this.productosService.productos.find(item => item.id == producto.idProductos).stock--;
     }else{
       if(producto.cantidad < 2){
-        console.log('eliminar');
+
         this.deleteProduct(producto.productos);
       }else{
         producto.cantidad--;

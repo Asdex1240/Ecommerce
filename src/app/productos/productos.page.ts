@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 })
 export class ProductosPage implements OnInit {
 
+  precioFinal = 0;
   producto: Producto;
   statusProfile;
   carrito = {
@@ -61,6 +62,8 @@ export class ProductosPage implements OnInit {
       const x = this.productosService.carrito.find(item => item.idProductos == this.producto.id)
       if(x){
         x.cantidad++;
+        this.productosService.total();
+        this.precioFinal = this.productosService.precioFinal;
       }else{
 
       this.carrito.productos = this.producto.nombre;
@@ -71,11 +74,13 @@ export class ProductosPage implements OnInit {
       this.carrito.cantidad = 1;
       this.carrito.fecha = new Date().toISOString();
       this.productosService.carrito.push(this.carrito);
-
+      this.productosService.total();
+      console.log(this.productosService.precioFinal);
       }
 
     }else{
       this.router.navigateByUrl('/login');
     }
   }
+
 }

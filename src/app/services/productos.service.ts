@@ -7,6 +7,8 @@ export class ProductosService {
 
   constructor() { }
 
+  precioFinal;
+
   productos: Producto[] = [
     {
       nombre: 'Pizza',
@@ -50,4 +52,11 @@ export class ProductosService {
 
   carrito: Pedido[] = [];
 
+  total(){
+    this.precioFinal = 0;
+    this.carrito.forEach(item => {
+      this.precioFinal += item.monto * item.cantidad;
+    });
+    return this.precioFinal;
+  }
 }
