@@ -30,12 +30,14 @@ export class CarritoPage implements OnInit {
   changeCantidad(producto:any, status:number){
     if(status == 1){
       producto.cantidad++;
+      this.productosService.productos.find(item => item.id == producto.idProductos).stock--;
     }else{
       if(producto.cantidad < 2){
         console.log('eliminar');
         this.deleteProduct(producto.productos);
       }else{
         producto.cantidad--;
+        this.productosService.productos.find(item => item.id == producto.idProductos).stock++;
       }
     }
   }

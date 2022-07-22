@@ -54,6 +54,10 @@ export class ProductosPage implements OnInit {
 
   openCart(){
     if(this.statusProfile){
+      const y = this.productosService.productos.find(item => item.id == this.producto.id)
+      if(y){
+        y.stock--;
+      }
       const x = this.productosService.carrito.find(item => item.idProductos == this.producto.id)
       if(x){
         x.cantidad++;
@@ -67,7 +71,9 @@ export class ProductosPage implements OnInit {
       this.carrito.cantidad = 1;
       this.carrito.fecha = new Date().toISOString();
       this.productosService.carrito.push(this.carrito);
+
       }
+
     }else{
       this.router.navigateByUrl('/login');
     }

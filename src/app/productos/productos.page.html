@@ -13,9 +13,7 @@
         <h1>
           {{producto.nombre}}
         </h1>
-
         <h2> {{producto.descripcion}}</h2>
-
       <ion-item>
         <ion-buttons  slot="end">
           <ion-button (click)="openCart()">
@@ -23,6 +21,9 @@
           </ion-button>
         </ion-buttons>
         <h2> $ {{producto.precio}}</h2>
+      </ion-item>
+      <ion-item>
+        <h2>Cantidad: {{producto.stock}}</h2>
       </ion-item>
     </ion-card-content>
   </ion-card>
