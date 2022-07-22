@@ -39,11 +39,16 @@
             <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
           </ion-button>
         </ion-buttons>
-        <h2> $ {{producto.monto}}</h2>
+        <h2> $ {{this.producto.submonto}}</h2>
       </ion-item>
     </ion-card-content>
   </ion-card>
-  <ion-button expand="block" *ngIf="this.productosService.carrito.length > 0">
+  <ion-item *ngIf="this.productosService.carrito.length > 0">
+    <ion-label >
+      <h2>precioFinal: {{precioFinal}}</h2>
+    </ion-label>
+  </ion-item>
+  <ion-button expand="block" *ngIf="this.productosService.carrito.length > 0" (click)="calculoTotal()">
     Comprar carrito
   </ion-button>
 </ion-content>

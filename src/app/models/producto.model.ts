@@ -25,4 +25,5 @@ export class Pedido {
 	status: boolean;
 	cantidad: number;
 	fecha: string;
+	submonto: number;
 }

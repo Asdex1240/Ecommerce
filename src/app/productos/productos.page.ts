@@ -16,6 +16,7 @@ export class ProductosPage implements OnInit {
   precioFinal = 0;
   producto: Producto;
   statusProfile;
+
   carrito = {
     productos: '',
     idProductos: '',
@@ -24,6 +25,7 @@ export class ProductosPage implements OnInit {
     status: false,
     cantidad: null,
     fecha: '',
+    submonto: null
   }
 
   constructor
@@ -62,7 +64,9 @@ export class ProductosPage implements OnInit {
       const x = this.productosService.carrito.find(item => item.idProductos == this.producto.id)
       if(x){
         x.cantidad++;
-        this.productosService.total();
+        
+        console.log(this.carrito);
+        this.carrito.submonto = this.producto.precio * this.carrito.cantidad;
         this.precioFinal = this.productosService.precioFinal;
       }else{
 
@@ -71,11 +75,12 @@ export class ProductosPage implements OnInit {
       this.carrito.idComprador = this.auth.currentUser.uid;
       this.carrito.monto = this.producto.precio;
       this.carrito.status = false;
-      this.carrito.cantidad = 1;
+      this.carrito.cantidad++;
+      this.carrito.submonto = this.producto.precio * this.carrito.cantidad;
       this.carrito.fecha = new Date().toISOString();
       this.productosService.carrito.push(this.carrito);
-      this.productosService.total();
-      console.log(this.productosService.precioFinal);
+
+      console.log(this.carrito);
       }
 
     }else{

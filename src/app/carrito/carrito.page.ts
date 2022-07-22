@@ -8,13 +8,18 @@ import { ProductosService } from '../services/productos.service';
 })
 export class CarritoPage implements OnInit {
 
+  
   constructor
   (
     private menuCtrl: MenuController,
     public productosService: ProductosService
-  ) {}
+    ) {
+      
+    }
+    precioFinal = 0;
 
   ngOnInit() {
+    console.log('hola');
   }
 
   menu(){
@@ -31,15 +36,28 @@ export class CarritoPage implements OnInit {
     if(status == 1){
       producto.cantidad++;
       this.productosService.productos.find(item => item.id == producto.idProductos).stock--;
+      this.calculoTotal();
+      
     }else{
       if(producto.cantidad < 2){
-
         this.deleteProduct(producto.productos);
       }else{
         producto.cantidad--;
         this.productosService.productos.find(item => item.id == producto.idProductos).stock++;
+        this.calculoTotal();
       }
     }
+    producto.submonto = producto.cantidad * producto.monto;
+  }
+
+  calculoTotal(){
+    
+    this.precioFinal = 0;
+    this.productosService.carrito.forEach(item => {
+      console.log(item);
+      this.precioFinal = item.submonto;
+    });
+
   }
 
 }
