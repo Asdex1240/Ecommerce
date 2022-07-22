@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductosService } from '../services/productos.service';
 import { ActivatedRoute } from '@angular/router';
 import { Producto, Pedido } from '../models/producto.model';
-import { MenuController } from '@ionic/angular';
+import { IonItem, MenuController } from '@ionic/angular';
 import { Auth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 
@@ -54,7 +54,11 @@ export class ProductosPage implements OnInit {
 
   openCart(){
     if(this.statusProfile){
-      
+      const x = this.productosService.carrito.find(item => item.idProductos == this.producto.id)
+      if(x){
+        x.cantidad++;
+      }else{
+
       this.carrito.productos = this.producto.nombre;
       this.carrito.idProductos = this.producto.id;
       this.carrito.idComprador = this.auth.currentUser.uid;
@@ -63,7 +67,7 @@ export class ProductosPage implements OnInit {
       this.carrito.cantidad = 1;
       this.carrito.fecha = new Date().toISOString();
       this.productosService.carrito.push(this.carrito);
-      console.log(this.productosService.carrito);
+      }
     }else{
       this.router.navigateByUrl('/login');
     }

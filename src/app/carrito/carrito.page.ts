@@ -21,4 +21,23 @@ export class CarritoPage implements OnInit {
     this.menuCtrl.toggle();
   }
   
+  deleteProduct(data: any){
+    this.productosService.carrito = this.productosService.carrito.filter(item => {
+    return  item.productos !== data;
+    }); 
+  }
+
+  changeCantidad(producto:any, status:number){
+    if(status == 1){
+      producto.cantidad++;
+    }else{
+      if(producto.cantidad < 2){
+        console.log('eliminar');
+        this.deleteProduct(producto.productos);
+      }else{
+        producto.cantidad--;
+      }
+    }
+  }
+
 }

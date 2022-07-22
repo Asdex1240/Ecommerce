@@ -48,16 +48,6 @@ export class ProductosService {
   
   categories= ['Pizzas', 'Hamburguesas', 'Pollo', 'Pescado'];
 
-  carrito: Pedido[] = [
-    {
-      productos: 'Pizza',
-      idProductos: '1',
-      idComprador: '1',
-      monto: 10,
-      status: false,
-      cantidad: 1,
-      fecha: '',
-    },
-  ];
+  carrito: Pedido[] = [];
 
 }

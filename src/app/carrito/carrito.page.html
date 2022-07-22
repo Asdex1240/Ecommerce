@@ -10,19 +10,32 @@
 </ion-header>
 
 <ion-content>
+  <h1 class="ion-text-center" *ngIf="this.productosService.carrito.length == 0">
+    Carrito vacío, agregue productos al carrito.
+  </h1>
   <ion-card *ngFor="let producto of this.productosService.carrito">
     <ion-card-content>
+
+
       <ion-item>
         <h1>
             {{producto.productos}}
         </h1>
       </ion-item>
       <ion-item>
+        <ion-buttons  slot="end">
+          <ion-button (click)="changeCantidad(producto, 1)">
+            <ion-icon slot="icon-only" name="add-outline"></ion-icon>
+          </ion-button>
+          <ion-button (click)="changeCantidad(producto, 0)">
+            <ion-icon slot="icon-only" name="remove-outline"></ion-icon>
+          </ion-button>
+        </ion-buttons>
         Cantidad: {{producto.cantidad}}
       </ion-item>
       <ion-item>
         <ion-buttons  slot="end">
-          <ion-button>
+          <ion-button (click)="deleteProduct(producto.productos)">
             <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
           </ion-button>
         </ion-buttons>
